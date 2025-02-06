@@ -10,4 +10,8 @@ def add(numbers: str) -> int:
         int: The sum of the numbers. Returns o if the string is empty.
     """
     
-    return sum(int(n) for n in numbers.split(",")) if numbers else 0
+    if not numbers:
+        return 0
+    
+    numbers = numbers.replace("\n", ",")
+    return sum(map(int, numbers.split(",")))
