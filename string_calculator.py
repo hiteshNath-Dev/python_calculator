@@ -9,4 +9,8 @@ def add(numbers: str) -> int:
     Returns:
         int: The sum of the numbers. Returns o if the string is empty.
     """
-    return 0
+    if not numbers:
+        return 0
+    
+    ret = int(numbers)
+    return ret
