@@ -12,7 +12,10 @@ class TestStringCalculator(unittest.TestCase):
         self.assertEqual(add("1, 2"), 3)
 
     def test_multiple_numbers(self):
-        self.assertEqual(add("1, 2, 3, 4"), 10)   
+        self.assertEqual(add("1, 2, 3, 4"), 10)
+    
+    def test_new_line_as_delimiter(self):
+        self.assertEqual(add("1\n2,3"), 6) 
 
 if __name__ == "__main__":
     unittest.main()
