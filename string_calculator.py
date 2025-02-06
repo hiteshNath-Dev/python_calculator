@@ -13,4 +13,11 @@ def add(numbers: str) -> int:
     if not numbers:
         return 0
     
-    return sum(int(n) for n in numbers.replace("\n", ",").split(","))
+    delimiter = ","
+    if numbers.startswith("//"):
+        parts = numbers.split("\n", 1)
+        delimiter = parts[0][2:]
+        numbers = parts[1]
+
+    numbers = numbers.replace("\n", delimiter)
+    return sum(map(int, numbers.split(delimiter)))
