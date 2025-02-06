@@ -15,9 +15,6 @@ def add(numbers: str) -> int:
     
     delimiter = ","
     if numbers.startswith("//"):
-        parts = numbers.split("\n", 1)
-        delimiter = parts[0][2:]
-        numbers = parts[1]
+        delimiter, numbers = numbers[2:].split("\n", 1)
 
-    numbers = numbers.replace("\n", delimiter)
-    return sum(map(int, numbers.split(delimiter)))
+    return sum(map(int, numbers.replace("\n", delimiter).split(delimiter)))
